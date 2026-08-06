@@ -1,0 +1,13 @@
+# Foundational LangChain Core packages
+langchain>=0.3.0
+langchain-core>=0.3.0
+
+# Ingestion & Language-Aware Parsing
+langchain-text-splitters>=0.3.0
+
+# Vector Database (Local Chroma Integration)
+langchain-chroma>=0.1.0
+chromadb>=0.5.0
+
+# Gemini Embedding & Chat Integration
+langchain-google-genai>=4.0.0
