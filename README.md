@@ -54,11 +54,52 @@ for doc in retrieved_docs:
 
 ## 📦 3. Behind the Scenes Details
 
-- **Language-Aware Chunking:** The parser (`backend/parser.py`) automatically detects supported languages (Python, JavaScript, TypeScript, Java, C/C++, Go, HTML) and uses LangChain's native recursive language splitters [2].
-- **Rate-Limit Safe Ingestion:** Ingestion handles the 100 requests-per-minute rate limit on the Gemini Free Tier by batching chunk uploads in groups of 50 with a defensive delay.
+- **Language-Aware Chunking:** The parser (`backend/parser.py`) automatically detects supported languages (Python, JavaScript, TypeScript, Java, C/C++, Go, HTML) and uses LangChain's native recursive language splitters.
+- **Rate-Limit Safe Ingestion:** Ingestion handles rate limits on the Gemini API by batching chunk uploads with defensive delays.
 - **Storage Location:** Chroma DB files are persisted locally in the `./chroma_db` folder of the workspace.
 
+---
+
+## 🤝 4. Contributing & Git Workflow
+
+Follow this step-by-step workflow to contribute to the repository using a fork and pull request (PR):
+
+### 1. Clone your fork and navigate into the project
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-FORKED-REPO.git
+cd YOUR-FORKED-REPO
 ```
 
-Now you can check in your files, push them to your shared repository, and Partner B is fully unblocked to hook up their chat interface and model logic. Let me know if you would like to prepare any additional documentation!
+### 2. Add the original repository as `upstream`
+```bash
+git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPO.git
 ```
+
+### 3. Fetch latest changes from original `main` and sync local `main`
+```bash
+git checkout main
+git fetch upstream
+git reset --hard upstream/main
+```
+
+### 4. Create and switch to a new feature branch
+```bash
+git checkout -b my-feature-branch
+```
+
+### 5. Make your code changes, stage, and commit them
+```bash
+git add .
+git commit -m "Description of changes"
+```
+
+### 6. Push your branch to YOUR fork
+```bash
+git push origin my-feature-branch
+```
+
+### 7. Create a Pull Request (PR) to the original repository
+```bash
+gh pr create --repo ORIGINAL-OWNER/ORIGINAL-REPO --base main --head YOUR-USERNAME:my-feature-branch --title "Your PR Title" --body "Your PR description"
+```
+
