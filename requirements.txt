@@ -10,4 +10,4 @@ langchain-chroma>=0.1.0
 chromadb>=0.5.0
 
 # Gemini Embedding & Chat Integration
-langchain-google-genai>=4.0.0
+langchain-google-genai
