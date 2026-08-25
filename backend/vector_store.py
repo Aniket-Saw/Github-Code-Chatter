@@ -166,29 +166,29 @@ class CodeVectorStore:
         return self.collection.count()
     
     def get_existing_chunk_ids(
-    self,
-    chunks: list[dict],
+        self,
+        chunks: list[dict],
     ) -> set[str]:
-    """
-    Return the IDs of chunks that already exist
-    in ChromaDB.
-    """
+        """
+        Return the IDs of chunks that already exist
+        in ChromaDB.
+        """
 
-    if not chunks:
-        return set()
+        if not chunks:
+            return set()
 
-    chunk_ids = [
-        self._create_chunk_id(
-            chunk["metadata"]
+        chunk_ids = [
+            self._create_chunk_id(
+                chunk["metadata"]
         )
         for chunk in chunks
     ]
 
-    result = self.collection.get(
-        ids=chunk_ids
-    )
+        result = self.collection.get(
+            ids=chunk_ids
+        )
 
-    return set(result["ids"])
+        return set(result["ids"])
 
     def clear(self) -> None:
         """
